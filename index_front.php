@@ -13,17 +13,19 @@ require 'PHPMailer/SMTP.php';
 
  if(isset($_POST["send"]))
  {
-   require 'class/class.phpmailer.php';
+ 
      $mail = new PHPMailer(true);
+     $mail->SMTPDebug = 2;
      $mail->IsSMTP();
-     $mail->Host = 'mail.digitaleriamx.com';
-     $mail->Port = '465';
+     $mail->Host = 'smtp.gmail.com';
+     $mail->Port = 587;
      $mail->SMTPAuth = true;
-     $mail->Username = 'mailing@digitaleriamx.com';
-     $mail->Password = 'NJCf@jEK3&8';
-     $mail->SMTPSecure = ;
-     $mail->From = 'Digitaleria';
-     $mail->FromName = 'wp.digitaleriamx.com';
+     $mail->Username = 'karlasantoyo1601@gmail.com';
+     $mail->Password = 'zzlsksczgdbzmcus';
+     $mail->SMTPSecure = 'tls';
+     $mail->setFrom('mailing@digitaleriamx.com', 'Mailer');
+    //  $mail->From = 'Digitaleria';
+    //  $mail->FromName = 'wp.digitaleriamx.com';
      $mail->AddAddress($_POST["receiver_email"]);
      $mail->WordWrap = 50;
      $mail->IsHTML(true);
